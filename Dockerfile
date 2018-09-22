@@ -1,4 +1,5 @@
 FROM golang:1.11 AS build
+LABEL maintainer="alex.whitler@gmail.com"
 WORKDIR /go/src/healthz
 COPY . .
 RUN go get -d -v \
