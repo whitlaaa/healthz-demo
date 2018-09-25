@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -68,5 +69,5 @@ func buildResponse(message string) Response {
 type Response struct {
 	Timestamp time.Time `json:"timestamp"`
 	Message   string    `json:"message"`
-	Hostname  string	`json:"hostname"`
+	Hostname  string    `json:"hostname"`
 }
