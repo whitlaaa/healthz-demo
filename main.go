@@ -57,10 +57,16 @@ func demoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func buildResponse(message string) Response {
-	return Response{time.Now(), message}
+	hostname, err := os.Hostname()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return Response{time.Now(), message, hostname}
 }
 
 type Response struct {
 	Timestamp time.Time `json:"timestamp"`
 	Message   string    `json:"message"`
+	Hostname  string	`json:"hostname"`
 }
